@@ -1,0 +1,27 @@
+{
+  "name": "vuecli16demo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "core-js": "^2.6.5",
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.3",
+    "vuetify": "^2.4.0",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@mdi/font": "^5.9.55",
+    "@vue/cli-plugin-babel": "^3.12.0",
+    "@vue/cli-service": "^3.12.0",
+    "sass": "^1.32.0",
+    "sass-loader": "^10.0.0",
+    "typeface-roboto": "^1.1.13",
+    "vue-cli-plugin-vuetify": "^2.2.0",
+    "vue-template-compiler": "^2.6.10",
+    "vuetify-loader": "^1.7.0"
+  }
+}

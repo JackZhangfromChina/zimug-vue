@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第一个VUE程序</title>
+</head>
+
+<body>
+<div id="app">
+<!--    <h2>你好啊，{{message}}</h2>-->
+    <h2>你好啊,</h2>
+</div>
+<!--从CDN引入vue.js-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/qs/6.9.4/qs.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/require.js/2.3.6/require.js"></script>
+<script>
+    // var qs = Qs;
+    // const app = new Vue({ //初始化一个VUE实例
+    //     el: '#app',     // 用于页面渲染VUE实例的元素
+    //     data: { // 定义数据
+    //         message: 'VUE'
+    //     }
+    // });
+    //使用axios发送get请求
+    // axios({
+    //   method:'get',     //http请求方法
+    //   url:"http://httpbin.org/get?param=hello"  //http服务地址
+    // }).then(function (response) {
+    //     //请求成功响应结果response
+    //     console.log(response);
+    //   }).catch(function (error) {
+    //     //请求异常响应结果
+    //     console.log(error);
+    // });
+    // //HTTP GET方法请求可以简写如下：
+    // axios.get("http://httpbin.org/get?param=hello")
+    //         .then(function (response) {
+    //           console.log('response2');
+    //           console.log(response);
+    //         }).catch(function (error) {
+    //   console.log(error);
+    // });
+
+    // 上面的GET请求也可以通过下面的方式传参
+    // axios.get("http://httpbin.org/get", {
+    //   params: {
+    //     param:'hello22'
+    //   }
+    // }).then(function (response) {
+    //   console.log(response);
+    // }).catch(function (error) {
+    //   console.log(error);
+    // });
+
+    // function getHello() {
+    //   return axios.get('http://httpbin.org/get?param=hello');
+    // }
+    // function getWorld() {
+    //   return axios.get('http://httpbin.org/get?param=world');
+    // }
+    // axios.all([getHello(), getWorld()])
+    //         .then(axios.spread(function (res1, res2) {
+    //           // 两个请求都执行完成后，进入该函数
+    //           console.log(res1.data.args.param +  " " + res2.data.args.param )
+    //         }));
+
+
+    // axios.post('http://httpbin.org/post',
+    //         {
+    //           firstName: 'kobe',
+    //           lastName: 'byrant'
+    //         },{
+    //           headers:{"Content-Type":"application/json"}
+    //         }
+    // ).then(function (response) {
+    //   console.log(response);
+    // });
+
+    //结合qs
+    // axios.post('http://httpbin.org/post',
+    //     qs.stringify({
+    //         firstName: 'kobe',
+    //         lastName: 'byrant'
+    //     }),
+    //     {
+    //         transformRequest: [function (data) {
+    //             // 在这里对 data 进行任意转换处理
+    //             return 1111;
+    //         }],
+    //         // `transformResponse` 在传递给 then/catch 前，允许修改响应数据
+    //         transformResponse: [function (data) {
+    //             // 在这里对 data 进行任意转换处理
+    //
+    //             return 2222;
+    //         }],
+    //         headers: {"content-type": "application/x-www-form-urlencoded"}
+    //     }
+    // ).then(function (response) {
+    //     console.log('qs');
+    //     console.log(response);
+    // });
+
+    // axios({
+    //     url: 'http://cdn.zimug.com/zimug-banner-ad.png',
+    //     method: 'get',
+    //     onDownloadProgress (progress) {
+    //         console.log(Math.round(progress.loaded / progress.total * 100) + '%');
+    //     }
+    // })
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            msg: "hello"
+        },
+        //钩子函数定义的位置，与data，methods配置项同级
+        beforeCreate: function(){
+            console.group('beforeCreate------------------');
+            console.log('el:'+ this.$el); //获取el对象，实例自带的一个属性
+            console.log('data:'+ this.$data);
+            console.log('msg:'+ this.msg);
+        },
+        created: function(){
+            console.group('created------------------');
+            console.log('el:'+ this.$el);
+            console.log('data:'+ this.$data);
+            console.log('msg:'+ this.msg);
+        },
+        beforeMount: function(){
+            console.group('beforeMount------------------');
+            console.log('el:'+ this.$el);
+            console.log('data:'+ this.$data);
+            console.log('msg:'+ this.msg);
+        },
+        mounted: function(){
+            console.group('mounted------------------');
+            console.log('el:'+ this.$el);
+            console.log('data:'+ this.$data);
+            console.log('msg:'+ this.msg);
+        },
+        beforeUpdate: function(){
+            console.group('beforeUpdate------------------');
+            console.log('el:'+ this.$el);
+            console.log('data:'+ this.$data);
+            console.log('msg:'+ this.msg);
+        },
+        updated: function(){
+            console.group('updated------------------');
+            console.log('el:'+ this.$el);
+            console.log('data:'+ this.$data);
+            console.log('msg:'+ this.msg);
+        },
+        beforeDestroy: function(){
+            console.group('beforeDestroy------------------');
+            console.log('el:'+ this.$el);
+            console.log('data:'+ this.$data);
+            console.log('msg:'+ this.msg);
+        },
+        destroyed: function(){
+            console.group('destroyed------------------');
+            console.log('el:'+ this.$el);
+            console.log('data:'+ this.$data);
+            console.log('msg:'+ this.msg);
+        }
+    });
+</script>
+</body>
+
+</html>
